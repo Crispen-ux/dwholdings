@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --radius: 4px;
+
+  /* Light mode (default) — DWH palette on ivory */
+  --color-bg: 250 247 240;        /* Ivory #FAF7F0 */
+  --color-surface: 255 255 255;   /* White */
+  --color-surface2: 242 239 230;  /* Ivory deep #F2EFE6 */
+  --color-border: 217 210 195;    /* Warm grey #D9D2C3 */
+  --color-text: 11 27 51;         /* Deep Navy #0B1B33 */
+  --color-text-dim: 58 70 89;     /* Slate #3A4659 */
+  --color-text-faint: 107 114 128;/* Grey #6B7280 */
+  --color-accent: 122 92 20;      /* Deep Gold #7A5C14 */
+  --color-accent-dim: 245 237 214;/* Gold tint #F5EDD6 */
+  --color-ok: 47 143 91;         /* Green #2F8F5B */
+  --color-warn: 183 121 31;      /* Amber #B7791F */
+}
+
+.dark {
+  /* Dark mode — original DWH navy palette */
+  --color-bg: 11 27 51;           /* Deep Navy #0B1B33 */
+  --color-surface: 16 35 65;      /* #102341 */
+  --color-surface2: 22 52 95;     /* Navy Light #16345F */
+  --color-border: 36 57 92;       /* #24395C */
+  --color-text: 250 247 240;     /* Ivory #FAF7F0 */
+  --color-text-dim: 185 194 207; /* #B9C2CF */
+  --color-text-faint: 125 139 161;/* #7D8BA1 */
+  --color-accent: 201 162 75;     /* Gold #C9A24B */
+  --color-accent-dim: 42 36 20;   /* #2A2414 */
+  --color-ok: 76 175 130;        /* #4CAF82 */
+  --color-warn: 217 164 65;      /* #D9A441 */
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+::selection {
+  background: #c9a24b;
+  color: #0b1b33;
+}
+
+.grid-bg {
+  background-image: linear-gradient(rgb(var(--color-border) / 0.4) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(var(--color-border) / 0.4) 1px, transparent 1px);
+  background-size: 48px 48px;
+  opacity: 0.35;
+  mask-image: linear-gradient(to bottom, black, transparent 85%);
+}
+
+.chip {
+  @apply px-4 py-2 text-[13px] rounded border border-border text-text-dim bg-bg transition-colors;
+}
+.chip.active {
+  @apply border-accent text-accent bg-accent-dim;
+}
+
+.btn {
+  @apply inline-flex items-center justify-center rounded border border-border px-4 py-2.5 text-[13px] font-semibold tracking-wide whitespace-nowrap transition-colors;
+}
+.btn-primary {
+  @apply bg-accent text-bg border-accent hover:opacity-90;
+}
+.btn-ghost {
+  @apply text-text-dim hover:text-text;
+}
